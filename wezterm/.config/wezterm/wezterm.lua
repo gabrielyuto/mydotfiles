@@ -2,8 +2,8 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 -- Configurações de janela
-config.initial_cols = 150
-config.initial_rows = 40
+config.initial_cols = 75
+config.initial_rows = 25
 config.window_background_opacity = 0.95
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
