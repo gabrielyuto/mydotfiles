@@ -14,7 +14,7 @@ local function map(mode, lhs, rhs, opts)
     options = vim.tbl_extend('force', options, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
   else
-    vim.keymap.set(mode, lhs, rhs)
+    vim.keymap.set(mode, lhs, rhs, options)
   end
 end
 
@@ -40,7 +40,7 @@ map('t','<C-/>', '<C-\\><C-n>:ToggleTerm<cr>',{ desc = 'Hide Terminal' })
 
 -- NVIMTREE
 map('n','<leader>e','<cmd>:NvimTreeToggle<CR>',{ noremap = true, silent = true })
-map('n','<leader>r','<cmd>:NvimTreeRefresh<cr>',{ noremap = true, silent = true })
+--map('n','<leader>r','<cmd>:NvimTreeRefresh<cr>',{ noremap = true, silent = true })
 map('n','<leader>n','<cmd>:NvimTreeFindFile<cr>',{ noremap = true, silent = true })
 
 -- LAZYGIT
@@ -63,10 +63,25 @@ map('n','<leader>dl',function() require('dap').run_last() end)
 map('n','<leader>da','<cmd>lua require("dapui").eval()<cr>',{ desc = 'DAP-UI' })
 
 -- VIM-RSPEC
-map('n','<leader>rs','<cmd>:call RunCurrentSpecFile()<cr>',{ desc = 'Find files' })
-map('n','<leader>rn','<cmd>:call RunNearestSpec()<cr>',{ desc = 'Live grep' }) 
-map('n','<leader>rl','<cmd>:call RunLastSpec()<cr>',{ desc = 'List buffers' })
-map('n','<leader>ra','<cmd>:call RunAllSpecs()<cr>',{ desc = 'Find help' })
+map('n','<leader>ss','<cmd>:call RunCurrentSpecFile()<cr>',{ desc = 'Find files' })
+map('n','<leader>sn','<cmd>:call RunNearestSpec()<cr>',{ desc = 'Live grep' }) 
+map('n','<leader>sl','<cmd>:call RunLastSpec()<cr>',{ desc = 'List buffers' })
+map('n','<leader>sa','<cmd>:call RunAllSpecs()<cr>',{ desc = 'Find help' })
 
 -- BUFFERLIST
 map('n','<leader>bb','<cmd>BufferListOpen<cr>',{ desc = 'Buffer list' })
+
+-- RSPEC-INTEGRATED
+map("n", "<leader>tI", "<cmd>lua require('rspec').run_current_file()<cr>")
+map("n", "<leader>ti", "<cmd>lua require('rspec').run_current_example()<cr>")
+map("n", "<leader>t.", "<cmd>lua require('rspec').repeat_last_run()<cr>")
+map("n", "<leader>td", "<cmd>lua require('rspec').debug()<cr>")
+map("n", "<leader>tS", "<cmd>lua require('rspec').run_suite()<cr>")
+
+
+-- RSPEC.NVIM
+-- map("n", "<leader>tn", ":RSpecNearest<CR>", { noremap = true, silent = true })
+-- map("n", "<leader>tf", ":RSpecCurrentFile<CR>", { noremap = true, silent = true })
+-- map("n", "<leader>tr", ":RSpecRerun<CR>", { noremap = true, silent = true })
+-- map("n", "<leader>tF", ":RSpecOnlyFailures<CR>", { noremap = true, silent = true })
+-- map("n", "<leader>ts", ":RSpecShowLastResult<CR>", { noremap = true, silent = true })
