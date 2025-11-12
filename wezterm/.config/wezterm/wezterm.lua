@@ -15,9 +15,9 @@ config.window_padding = {
 }
 
 -- Configurações de fonte
-config.font = wezterm.font("JetBrains Mono", { 
+config.font = wezterm.font("Cascadia Code", { 
     weight = "Regular", 
-    italic = true  -- Mudei para false porque muitas fontes não suportam itálico bem
+    italic = false  -- Mudei para false porque muitas fontes não suportam itálico bem
 })
 config.font_size = 15.0
 config.freetype_load_flags = "NO_HINTING"  -- Melhora a renderização da fonte

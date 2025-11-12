@@ -6,6 +6,8 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "b0o/SchemaStore.nvim",
       "hrsh7th/cmp-nvim-lsp",
+      "kevinhwang91/nvim-ufo", 
+      "kevinhwang91/promise-async",
     },
     config = function()
       require("mason").setup()
@@ -13,7 +15,7 @@ return {
         ensure_installed = { "yamlls" },
       })
 
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local capabilities = require("cmp_nvim_lsp", "ufo").default_capabilities()
       local schemastore = require("schemastore")
 
       vim.lsp.config("yamlls", {
