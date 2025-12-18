@@ -2,24 +2,24 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 -- Configurações de janela
-config.initial_cols = 75
-config.initial_rows = 25
+config.initial_cols = 120
+config.initial_rows = 40
 config.window_background_opacity = 0.95
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
-    left = 10,
-    right = 10,
-    top = 10,
-    bottom = 10,
+    left = 5,
+    right = 5,
+    top = 5,
+    bottom = 5,
 }
 
 -- Configurações de fonte
-config.font = wezterm.font("Cascadia Code", { 
+config.font = wezterm.font("JetBrains Mono", { 
     weight = "Regular", 
     italic = false  -- Mudei para false porque muitas fontes não suportam itálico bem
 })
-config.font_size = 15.0
+config.font_size = 12.0
 config.freetype_load_flags = "NO_HINTING"  -- Melhora a renderização da fonte
 
 -- Esquema de cores
